@@ -14,7 +14,7 @@ func NewTextDictionary(path string) (Text, error) {
 	return dict, dict.load(path)
 }
 
-// Text dictionary loads the txt file containing each word in separate row and stores it in a map of words.
+// Text dictionary uses a txt file to get the dictionary data into the map.
 type Text struct {
 	words map[string]bool
 }
