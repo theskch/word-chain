@@ -3,6 +3,7 @@ package dictionary
 import (
 	"bufio"
 	"os"
+	"unicode/utf8"
 )
 
 // NewTextDictionary returnes new instance of Text dictionary populated with data from the file located in `path`.
@@ -34,7 +35,7 @@ func (t *Text) GetWords(length int) map[string]bool {
 
 	retVal := make(map[string]bool)
 	for key := range t.words {
-		if len(key) == length {
+		if utf8.RuneCountInString(key) == length {
 			retVal[key] = true
 		}
 	}

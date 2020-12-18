@@ -12,7 +12,16 @@ func TestCreateLink(t *testing.T) {
 		link := CreateLink("gold", dict)
 		assert.Equal(t, "gold", link.Word)
 		assert.Equal(t, 2, len(link.Conns))
-		assert.True(t, link.Conns["bold"])
-		assert.True(t, link.Conns["told"])
+		containsBold := false
+		containsTold := false
+		for _, val := range link.Conns {
+			if val == "bold" {
+				containsBold = true
+			} else if val == "told" {
+				containsTold = true
+			}
+		}
+		assert.True(t, containsBold)
+		assert.True(t, containsTold)
 	})
 }

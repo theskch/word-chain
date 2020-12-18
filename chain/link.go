@@ -1,12 +1,16 @@
 package chain
 
+import (
+	"unicode/utf8"
+)
+
 // Link represents one word in chain
 //
 // It contains a string representation of the `word` and a map
 // of the words with distance of 1 from the `word` (one letter appart)
 type Link struct {
 	Word  string
-	Conns map[string]bool
+	Conns []string
 }
 
 // CreateLink returns a new link.
@@ -17,11 +21,10 @@ type Link struct {
 func CreateLink(word string, dict map[string]bool) Link {
 	wordRunes := []rune(word)
 	distance := 0
-	conns := make(map[string]bool)
-
+	conns := make([]string, 0)
 	for key := range dict {
 		// if key doesn't match the word in lenght, skip it
-		if len(word) != len(key) {
+		if utf8.RuneCountInString(word) != utf8.RuneCountInString(key) {
 			continue
 		}
 
@@ -38,7 +41,7 @@ func CreateLink(word string, dict map[string]bool) Link {
 
 		// don't include the `word` in connections
 		if distance == 1 {
-			conns[key] = true
+			conns = append(conns, key)
 		}
 	}
 	return Link{Word: word, Conns: conns}
