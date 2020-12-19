@@ -7,7 +7,7 @@ import (
 // Link represents one word in chain
 //
 // It contains a string representation of the `word` and a map
-// of the words with distance of 1 from the `word` (one letter appart)
+// of the words with distance of 1 from the `word` (one letter apart)
 type Link struct {
 	Word  string
 	Conns []string
@@ -23,7 +23,7 @@ func CreateLink(word string, dict map[string]bool) Link {
 	distance := 0
 	conns := make([]string, 0)
 	for key := range dict {
-		// if key doesn't match the word in lenght, skip it
+		// if key doesn't match the word in length, skip it
 		if utf8.RuneCountInString(word) != utf8.RuneCountInString(key) {
 			continue
 		}

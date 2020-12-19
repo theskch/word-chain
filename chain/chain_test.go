@@ -32,7 +32,7 @@ func TestChain(t *testing.T) {
 }
 
 func TestFindShortestChain(t *testing.T) {
-	t.Run("start and stop word lenght mismatch", func(t *testing.T) {
+	t.Run("start and stop word length mismatch", func(t *testing.T) {
 		_, err := FindShortestChain("ruby", "cod", map[string]bool{})
 		assert.Error(t, err)
 	})
