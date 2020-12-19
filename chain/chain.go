@@ -5,6 +5,7 @@ import (
 	"container/list"
 	"encoding/gob"
 	"fmt"
+	"unicode/utf8"
 )
 
 // Chain represents a path of words. It stores all the words that were traveresed during the search and is responsible for word chain representation of the result.
@@ -63,8 +64,8 @@ func (c Chain) DeepCopy() (Chain, error) {
 // Error is returned if len(start) != len(stop) or start/stop word is not present in the `dict`.
 func FindShortestChain(start string, stop string, dict map[string]bool) (Chain, error) {
 	// return error if length of the start and stop word doesn't match
-	if len(start) != len(stop) {
-		return Chain{}, fmt.Errorf("first and last words have different lengts")
+	if utf8.RuneCountInString(start) != utf8.RuneCountInString(stop) {
+		return Chain{}, fmt.Errorf("first and last words have different lengths")
 	}
 
 	links := make(map[string]Link)
