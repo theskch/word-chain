@@ -20,14 +20,14 @@ type Text struct {
 	words map[string]bool
 }
 
-// Contains checks if dictionary contains `word`
+// Contains checks if dictionary contains `word`.
 func (t *Text) Contains(word string) bool {
 	return t.words[word]
 }
 
-// GetWords returns words from the dictionary with specified length
+// GetWords returns words from the dictionary with specified length.
 //
-// If `length` <= 0 all words are returned
+// If `length` <= 0 all words are returned.
 func (t *Text) GetWords(length int) map[string]bool {
 	if length <= 0 {
 		return t.words

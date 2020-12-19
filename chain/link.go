@@ -4,10 +4,10 @@ import (
 	"unicode/utf8"
 )
 
-// Link represents one word in chain
+// Link represents one word in chain.
 //
 // It contains a string representation of the `word` and a map
-// of the words with distance of 1 from the `word` (one letter apart)
+// of the words with distance of 1 from the `word` (one letter apart).
 type Link struct {
 	Word  string
 	Conns []string
@@ -16,7 +16,6 @@ type Link struct {
 // CreateLink returns a new link.
 //
 // Link is created from the `word` using dictionary `dict`.
-//
 // Comparison of words is case sensitive.
 func CreateLink(word string, dict map[string]bool) Link {
 	wordRunes := []rune(word)

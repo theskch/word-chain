@@ -18,7 +18,7 @@ func (c Chain) Length() int {
 	return len(c.Links)
 }
 
-// String returns the string representation of the chain
+// String returns the string representation of the chain.
 func (c Chain) String() string {
 	var retVal string
 	for i, link := range c.Links {
@@ -47,11 +47,10 @@ func (c Chain) DeepCopy() (Chain, error) {
 	return copy, err
 }
 
-// FindShortestChain returnes one of the shortest paths from `start` to `stop` word using dictionary `dict`.
-// It uses the Breadth-first search algorithm for traversing a graph data structure. Nodes of the graph are
-// words in the dictionary. Edges are created between two nodes with distance of 1 (same length words with one letter
-// difference, case sensitive). Nodes of the graph are represented with `Link` structure, while edges are Conns
-// inside `Link` structure.
+// FindShortestChain returns one of the shortest paths from `start` to `stop` word using dictionary `dict`.
+// It uses the Breadth-first search algorithm for traversing a graph data structure. Nodes of the graph are words in the dictionary.
+// Edges are created between two nodes with a distance of 1 (same length words with one letter difference, case sensitive).
+// Nodes of the graph are represented by `Link` structure, while edges are Conns inside `Link` structure.
 //
 // `start` is the first word in the chain.
 //

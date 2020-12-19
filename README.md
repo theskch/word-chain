@@ -1,6 +1,7 @@
 # word-chain
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/theskch/word-chain)](https://goreportcard.com/report/github.com/theskch/word-chain)
+[![GoDoc](https://godoc.org/github.com/theskch/word-chain?status.svg)](https://godoc.org/github.com/theskch/word-chain)
 
 Word-chain is a simple CLI tool built to find one of the shortest word chains, in regards to the supplied dictionary. The task was inspired by the http://codekata.com/kata/kata19-word-chains/.<br/> 
 When run, the prompt asks for the first word of the chain, and the last word of the chain.
