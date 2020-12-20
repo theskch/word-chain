@@ -49,15 +49,18 @@ func main() {
 			secondWord = strings.Replace(secondWord, "\n", "", -1)
 
 			s := spinner.New(spinner.CharSets[35], 200*time.Millisecond)
-			fmt.Println("\nSearching: ")
+			fmt.Println("Searching: ")
 			s.Start()
+			start := time.Now()
 			chain, err := chain.FindShortestChain(firstWord, secondWord, dict.GetWords(utf8.RuneCountInString(firstWord)))
+			elapsed := time.Since(start)
 			s.Stop()
 			if err != nil {
 				fmt.Printf("faild to create chain, reason: %s", err)
 			} else if chain.Length() == 0 {
-				fmt.Printf("not possible to create chain with the current dictionary")
+				fmt.Printf("not possible to create chain with the current dictionary.")
 			} else {
+				fmt.Println(fmt.Sprintf("Seach done in %+v. Result:", elapsed))
 				fmt.Printf("%s", chain.String())
 			}
 
